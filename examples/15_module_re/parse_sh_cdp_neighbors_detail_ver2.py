@@ -14,13 +14,12 @@ def parse_cdp(filename):
         for line in f:
             match = re.search(regex, line)
             if match:
-                if match.lastgroup == 'device':
-                    device = match.group(match.lastgroup)
+                name = match.lastgroup
+                if name == 'device':
+                    device = match.group(name)
                     result[device] = {}
-                elif device:
-                    result[device][match.lastgroup] = match.group(
-                        match.lastgroup)
-
+                else:
+                    result[device][name] = match.group(name)
     return result
 
 
