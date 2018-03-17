@@ -26,7 +26,7 @@ for IP in DEVICES_IP:
         t.write(b'terminal length 0\n')
         t.write(COMMAND + b'\n')
 
-        time.sleep(5)
+        time.sleep(1)
 
         output = t.read_very_eager().decode('utf-8')
         print(output)

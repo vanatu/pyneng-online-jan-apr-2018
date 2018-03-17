@@ -1,6 +1,4 @@
 import pexpect
-import getpass
-import sys
 
 
 def send_command_pexpect(ipaddress, username, password, enable_pass, command):
@@ -25,7 +23,6 @@ def send_command_pexpect(ipaddress, username, password, enable_pass, command):
             match = ssh.expect(['--More--', '>', pexpect.TIMEOUT])
             page = ssh.before.decode('utf-8')
             command_output += page
-            #print(page)
             if match == 1:
                 break
             elif match == 2:
@@ -35,8 +32,11 @@ def send_command_pexpect(ipaddress, username, password, enable_pass, command):
 
     return command_output
 
-COMMAND = 'sh run'
-USER = PASSWORD = ENABLE_PASS = 'cisco'
-ip = '192.168.100.1'
 
-print(send_command_pexpect(ip, USER, PASSWORD, ENABLE_PASS, 'sh ip int br'))
+if __name__ == '__main__':
+    command = 'sh run'
+    user = password = enable_pass = 'cisco'
+    ip = '192.168.100.1'
+
+    print(send_command_pexpect(ip, user, password, enable_pass, 'sh ip int br'))
+
