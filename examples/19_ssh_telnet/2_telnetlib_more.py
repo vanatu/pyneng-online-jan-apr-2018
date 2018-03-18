@@ -1,4 +1,5 @@
 import telnetlib
+import time
 
 
 def send_command_telnetlib(ipaddress, username, password, enable_pass, command):
