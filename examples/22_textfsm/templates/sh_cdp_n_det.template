@@ -1,15 +1,15 @@
-Value Filldown LOCAL_HOST (\S+)
-Value Required DEST_HOST (\S+)
-Value MGMNT_IP (.*)
-Value PLATFORM (.*)
-Value LOCAL_PORT (.*)
-Value REMOTE_PORT (.*)
-Value IOS_VERSION (\S+)
+Value Filldown L_HOST (\S+)
+Value Required R_HOST (\S+)
+Value MGMNT_IP (.+)
+Value PLATFORM (.+)
+Value L_PORT (\S+)
+Value R_PORT (\S+)
+Value IOS (\S+)
 
 Start
-  ^${LOCAL_HOST}[>#].
-  ^Device ID: ${DEST_HOST}
-  ^.*IP address: ${MGMNT_IP}
+  ^${L_HOST}[>#].
+  ^Device ID: ${R_HOST}
+  ^ +IP address: ${MGMNT_IP}
   ^Platform: ${PLATFORM},
-  ^Interface: ${LOCAL_PORT},  Port ID \(outgoing port\): ${REMOTE_PORT}
-  ^.*Version ${IOS_VERSION}, -> Record
+  ^Interface: ${L_PORT},  Port ID \(outgoing port\): ${R_PORT}
+  ^.*Version ${IOS}, -> Record
