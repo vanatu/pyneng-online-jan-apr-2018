@@ -14,11 +14,14 @@ received_msg = '<=== {} Received result from device: {}'
 
 def connect_ssh(device_dict, command):
     print(start_msg.format(datetime.now().time(), device_dict['ip']))
-    with ConnectHandler(**device_dict) as ssh:
-        ssh.enable()
-        result = ssh.send_command(command)
-        print(received_msg.format(datetime.now().time(), device_dict['ip']))
-    return {device_dict['ip']: result}
+    try:
+        with ConnectHandler(**device_dict) as ssh:
+            ssh.enable()
+            result = ssh.send_command(command)
+            print(received_msg.format(datetime.now().time(), device_dict['ip']))
+        return device_dict['ip'], result
+    except SSHException as exc:
+        return device_dict['ip'], exc
 
 
 def threads_conn(function, devices, limit=2, command=''):
@@ -29,19 +32,15 @@ def threads_conn(function, devices, limit=2, command=''):
         ]
         for f in as_completed(future_ssh):
             print(f)
-            try:
-                result = f.result()
-            except NetMikoAuthenticationException as e:
+            ip, result = f.result()
+            all_results.update({ip: result})
+            if isinstance(result, Exception):
                 break
-            else:
-                all_results.update(result)
         print('-'*40)
         for f in reversed(future_ssh):
             if not f.cancel():
-                try:
-                    all_results.update(f.result())
-                except SSHException:
-                    pass
+                ip, result = f.result()
+                all_results.update({ip: result})
             print(f)
     return all_results
 
