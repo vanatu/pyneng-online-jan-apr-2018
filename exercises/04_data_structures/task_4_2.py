@@ -9,3 +9,5 @@
 '''
 
 MAC = 'AAAA:BBBB:CCCC'
+MAC = '{0[0]}.{0[1]}.{0[2]}'.format(MAC.split(':'))
+print(MAC)
