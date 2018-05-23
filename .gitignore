@@ -7,7 +7,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-
+temp.py
 # Vim undo files. Python#
 # #######################
 *.un~
