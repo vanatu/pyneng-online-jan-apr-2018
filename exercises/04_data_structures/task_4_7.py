@@ -9,3 +9,5 @@
 '''
 
 MAC = 'AAAA:BBBB:CCCC'
+MAC = [bin(int(i,16))[2:] for i in MAC.split(':')]
+print(''.join(MAC))
