@@ -19,3 +19,14 @@ D: 224-239
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+ip = [int(i) for i in input('IP-address: ').split('.')]
+if sum(ip) == 0:
+    print('unassigned')
+elif sum(ip) == 255*4:
+    print('local broadcast')
+elif ip[0] < 224:
+    print('unicast')
+elif ip[0] < 240:
+    print('multicast')
+else:
+    print('unused')
