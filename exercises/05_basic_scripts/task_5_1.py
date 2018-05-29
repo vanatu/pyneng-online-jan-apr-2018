@@ -19,3 +19,17 @@ Mask:
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+net = input('введите IP-сеть: ')
+octs = [int(i) for i in net.split('/')[0].split('.')]
+mask = net.split('/')[1]
+b_mask = '1' * int(mask) + '0' * (32 - int(mask))
+b_mask = [b_mask[:8], b_mask[8:16], b_mask[16:24], b_mask[24:]]
+d_mask = [int(i,2) for i in b_mask]
+print('''Network:
+{0:<10}{1:<10}{2:<10}{3:<10}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+
+Mask:
+/{4}'''.format(*octs, mask))
+print('{0:<10}{1:<10}{2:<10}{3:<10}'.format(*d_mask))
+print('{0:08b}  {1:08b}  {2:08b}  {3:08b}'.format(*d_mask))
