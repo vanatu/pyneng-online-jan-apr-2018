@@ -20,7 +20,7 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
-
+from pprint import pprint
 
 def generate_trunk_config(trunk):
     '''
@@ -32,6 +32,18 @@ def generate_trunk_config(trunk):
         'switchport trunk encapsulation dot1q', 'switchport mode trunk',
         'switchport trunk native vlan 999', 'switchport trunk allowed vlan'
     ]
+    result = []
+    for intf, vlans in trunk.items():
+        result.append(intf)
+        vlans = [str(vlan) for vlan in vlans]
+        for cm in trunk_template:
+            if cm.endswith('vlan'):
+                result.append(' {} {}'.format(cm, ','.join(vlans)))
+            else:
+                result.append(' {}'.format(cm))
+                
+
+    return result
 
 
 trunk_dict = {
@@ -39,3 +51,5 @@ trunk_dict = {
     'FastEthernet0/2': [11, 30],
     'FastEthernet0/4': [17]
 }
+
+pprint(generate_trunk_config(trunk_dict))

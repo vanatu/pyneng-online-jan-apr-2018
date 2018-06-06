@@ -38,7 +38,7 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
-
+from pprint import pprint
 
 def generate_access_config(access):
     '''
@@ -55,7 +55,16 @@ def generate_access_config(access):
         'switchport nonegotiate', 'spanning-tree portfast',
         'spanning-tree bpduguard enable'
     ]
-
+    result = []
+    for intf, vl in access.items():
+        result.append(intf)
+        for cm in access_template:
+            if cm.endswith('vlan'):
+                result.append(' {} {}'.format(cm, vl))
+            else:
+                result.append(' {}'.format(cm))
+    
+    return result
 
 access_dict = {
     'FastEthernet0/12': 10,
@@ -63,3 +72,5 @@ access_dict = {
     'FastEthernet0/16': 17,
     'FastEthernet0/17': 150
 }
+
+pprint(generate_access_config(access_dict))
