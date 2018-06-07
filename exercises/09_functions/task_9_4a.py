@@ -34,6 +34,7 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+from pprint import pprint
 
 ignore = ['duplex', 'alias', 'Current configuration']
 
@@ -49,3 +50,29 @@ def check_ignore(command, ignore):
 
     '''
     return any(word in command for word in ignore)
+
+def config_to_dict(config_file):
+    result = {}
+    with open(config_file) as f:
+        item_list = [line.rstrip() for line in f.read().split('\n')
+            if line and not ('!' in line or check_ignore(line, ignore))]
+        for item in item_list:
+            if not item.startswith(' '):
+                key = item
+                result[key] = []
+            else:
+                result[key].append(item)
+
+    for k,v in result.items():
+        if any([i.startswith('  ') for i in v]):
+            result[k] = {}
+            for j in v:
+                if not j.startswith('  '):
+                    key2 = j
+                    result[k][key2] = []
+                else:
+                    result[k][key2].append(j)
+
+    return result
+
+pprint(config_to_dict('config_r1.txt'))
