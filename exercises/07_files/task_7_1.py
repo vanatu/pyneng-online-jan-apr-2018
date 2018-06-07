@@ -14,3 +14,13 @@ Outbound Interface:    FastEthernet0/0
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+with open('ospf.txt') as f:
+    for line in f:
+        _, prf, ad_metr, _, nh, l_upd, o_intf = line.replace(',','').split()
+        print('''Protocol:              OSPF
+Prefix:                {}
+AD/Metric:             {}
+Next-Hop:              {}
+Last update:           {}
+Outbound Interface:    {}
+'''.format(prf, ad_metr.strip('[]'), nh, l_upd, o_intf))

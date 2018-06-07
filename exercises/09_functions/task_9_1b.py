@@ -20,9 +20,9 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+from pprint import pprint
 
-
-def generate_access_config(access):
+def generate_access_config(access, psecurity=False):
     '''
     access - словарь access-портов,
     для которых необходимо сгенерировать конфигурацию, вида:
@@ -50,7 +50,18 @@ def generate_access_config(access):
         'switchport port-security violation restrict',
         'switchport port-security'
     ]
-
+    result = {}
+    for intf, vl in access.items():
+        result[intf] = []
+        for cm in access_template:
+            if cm.endswith('vlan'):
+                result[intf] += ['{} {}'.format(cm,vl)]
+            else:
+                result[intf] += [cm]
+        if psecurity:
+            result[intf] += [sec for sec in port_security]
+    
+    return result
 
 access_dict = {
     'FastEthernet0/12': 10,
@@ -58,3 +69,5 @@ access_dict = {
     'FastEthernet0/16': 17,
     'FastEthernet0/17': 150
 }
+
+pprint(generate_access_config(access_dict))

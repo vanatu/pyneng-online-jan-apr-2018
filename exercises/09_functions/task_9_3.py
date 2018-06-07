@@ -21,3 +21,21 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+from pprint import pprint
+
+def get_int_vlan_map(cfg_file):
+    access, trunk = {},{}
+    with open(cfg_file) as f:
+        intf = ''
+        for line in f:
+            line = line.rstrip()
+            if line.startswith('interface'):
+                intf = line.split()[1]
+            if 'access vlan' in line:
+                access[intf] = int(line.split('vlan ')[1])
+            elif 'trunk allowed' in line:
+                trunk[intf] = [int(vl) for vl in line.split('vlan ')[1].split(',')]
+
+    return (access, trunk)
+
+pprint(get_int_vlan_map('config_sw1.txt'))
