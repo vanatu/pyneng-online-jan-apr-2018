@@ -36,9 +36,10 @@ def parse_cdp_neighbors(file):
             if line.endswith('show cdp neighbors'):
                 local_dev = line.split('>')[0]
             elif line[-1].isdigit():
-                rem_dev, local_port, *_, rem_port = [i.strip() for i in line.split('  ') if i]
-                result[(local_dev, local_port)] = (rem_dev, rem_port)
+                rem_dev, local_media, local_port, *_, rem_media, rem_port = line.split()
+                result[(local_dev, local_media + local_port)] = (rem_dev, rem_media + rem_port)
 
     return result
 
-pprint(parse_cdp_neighbors('sw1_sh_cdp_neighbors.txt'))
+if __name__ == '__main__':
+    pprint(parse_cdp_neighbors('sh_cdp_n_r2.txt'))

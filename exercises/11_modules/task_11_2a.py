@@ -32,3 +32,14 @@
 > pip install graphviz
 
 '''
+from task_11_1 import parse_cdp_neighbors
+from draw_network_graph import draw_topology
+
+def draw_topology_multi_devices(*args):
+    files = {}
+    for arg in args:
+        files.update({k:v for k,v in parse_cdp_neighbors(arg).items() if files.get(v) != k})
+    return draw_topology(files)
+
+if __name__ == '__main__':
+    draw_topology_multi_devices('sh_cdp_n_sw1.txt', 'sh_cdp_n_r1.txt', 'sh_cdp_n_r2.txt', 'sh_cdp_n_r3.txt')
