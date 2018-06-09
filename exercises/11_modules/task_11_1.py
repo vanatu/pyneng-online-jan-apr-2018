@@ -27,3 +27,18 @@ R6           Fa 0/2          143           R S I           2811       Fa 0/0
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+from pprint import pprint
+
+def parse_cdp_neighbors(file):
+    result = {}
+    with open(file) as f:
+        for line in [i for i in f.read().split('\n') if i]:
+            if line.endswith('show cdp neighbors'):
+                local_dev = line.split('>')[0]
+            elif line[-1].isdigit():
+                rem_dev, local_port, *_, rem_port = [i.strip() for i in line.split('  ') if i]
+                result[(local_dev, local_port)] = (rem_dev, rem_port)
+
+    return result
+
+pprint(parse_cdp_neighbors('sw1_sh_cdp_neighbors.txt'))
