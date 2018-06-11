@@ -21,3 +21,12 @@ Reachable    Unreachable
 То есть, до выполнения функции и после списки должны выглядеть одинаково.
 
 '''
+from tabulate import tabulate
+
+def ip_table(ip_ok, ip_bad):
+    col = ['Reachable', 'Unreachable']
+
+    return tabulate([(ip_ok), (ip_bad)], headers = col)
+
+if __name__ == '__main__':
+    print(ip_table(['8.8.8.8'], ['8.8.8.6, 8.8.8.7']))

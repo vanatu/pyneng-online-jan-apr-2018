@@ -38,4 +38,5 @@ def check_ip_availability(ip):
         ips.append(net + '.' + str(i))
     return check_ip_addresses(ips)
 
-print(check_ip_availability('8.8.8.6-10'))
+if __name__ == '__main__':
+    print(check_ip_availability('8.8.8.6-10'))
