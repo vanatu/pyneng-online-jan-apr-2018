@@ -14,3 +14,8 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+def check_ip_addresses(ip_list):
+	ip_ok = ip_bad = []
+	return ip_ok, ip_bad
+	
+check_ip_addresses(['8.8.8.8'])
