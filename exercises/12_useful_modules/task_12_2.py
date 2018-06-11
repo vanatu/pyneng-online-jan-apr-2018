@@ -29,3 +29,13 @@ IP-адреса могут быть в формате:
 
 Для выполнения задачи можно воспользоваться функцией check_ip_addresses из задания 12.1
 '''
+from task_12_1 import check_ip_addresses
+
+def check_ip_availability(ip):
+    ips = []
+    net = '.'.join(ip.split('.')[:3])
+    for i in range(int(ip.split('-')[0].split('.')[-1]), int(ip.split('-')[-1].split('.')[-1])+1):
+        ips.append(net + '.' + str(i))
+    return check_ip_addresses(ips)
+
+print(check_ip_availability('8.8.8.6-10'))
