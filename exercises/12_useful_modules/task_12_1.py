@@ -23,10 +23,7 @@ def check_ip_addresses(ip_list):
 		r = subprocess.run('ping -c 3 {}'.format(ip),
 		 					shell = True,
 							stdout=subprocess.DEVNULL)
-		if r.returncode == 0:
-			ip_ok.append(ip)
-		else:
-			ip_bad.append(ip)
+		ip_ok.append(ip) if r.returncode == 0 else ip_bad.append(ip)
 
 	return ip_ok, ip_bad
 
