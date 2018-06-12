@@ -24,9 +24,18 @@ Reachable    Unreachable
 from tabulate import tabulate
 
 def ip_table(ip_ok, ip_bad):
+    strings = []
     col = ['Reachable', 'Unreachable']
+    max_len = max(len(ip_ok), len(ip_bad))
+    if len(ip_ok) < max_len:
+        ip_ok += ['']*(max_len - len(ip_ok))
+    else:
+        ip_bad += ['']*(max_len - len(ip_bad))
 
-    return tabulate([(ip_ok), (ip_bad)], headers = col)
+    for i in range(max_len):
+        strings.append((ip_ok[i], ip_bad[i]))
+
+    return tabulate(strings, headers = col)
 
 if __name__ == '__main__':
-    print(ip_table(['8.8.8.8'], ['8.8.8.6, 8.8.8.7']))
+    print(ip_table(['8.8.8.8', '8.8.4.4'], ['8.8.8.9', '1.1.1.1', '2.2.2.2', '3.3.3.3']))
