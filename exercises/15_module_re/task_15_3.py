@@ -30,5 +30,5 @@ def parse_cfg(file):
         matches = regex.finditer(f.read())
         return [(i.group(1), i.group(2)) for i in matches]
 
-
-print(parse_cfg('config_r1.txt'))
+if __name__ == '__main__':
+    print(parse_cfg('config_r1.txt'))

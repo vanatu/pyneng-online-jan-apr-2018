@@ -30,5 +30,5 @@ def return_match(file, rgx):
             if match:
                 print(match.group())
 
-
-return_match('sh_ip_int_br.txt', '(\d+\.){3}\d+')
+if __name__ == '__main__':
+    return_match('sh_ip_int_br.txt', '(\d+\.){3}\d+')

@@ -37,5 +37,5 @@ def parse_cfg(file):
 
     return result
 
-
-pprint(parse_cfg('config_r1.txt'))
+if __name__ == '__main__':
+    pprint(parse_cfg('config_r1.txt'))

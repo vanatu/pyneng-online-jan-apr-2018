@@ -21,3 +21,17 @@
 Проверить работу функции на примере файла sh_ip_int_br_2.txt.
 
 '''
+import re
+from pprint import pprint
+
+def parse_sh_ip_int_br(file):
+    result = []
+    with open(file) as f:
+        for line in f:
+            if re.match('.*(up|down) +', line):
+                line = re.sub('vely down','vely_down', line)
+                result.append(tuple(re.split('(?:YES \w+|\s)+', line.rstrip())))
+    return result
+
+if __name__ == '__main__':
+    pprint(parse_sh_ip_int_br('sh_ip_int_br_2.txt'))

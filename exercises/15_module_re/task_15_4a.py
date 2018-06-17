@@ -21,5 +21,20 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+import re
+from task_15_4 import parse_sh_ip_int_br as parse_show
+from pprint import pprint
 
 headers = ['interface', 'address', 'status', 'protocol']
+def convert_to_dict(hdrs, parse_list_tuples):
+    result = []
+    for line in parse_list_tuples:
+        dict = {}
+        for num in range(len(hdrs)):
+            dict[hdrs[num]] = line[num]
+        result.append(dict)
+
+    return result
+
+if __name__ == '__main__':
+    pprint(convert_to_dict(headers, parse_show('sh_ip_int_br_2.txt')))
