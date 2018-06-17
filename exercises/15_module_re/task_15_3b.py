@@ -24,3 +24,24 @@ Ethernet0/1 соответствует список из двух кортеже
 диапазоны адресов и так далее, так как обрабатывается вывод команды, а не ввод пользователя.
 
 '''
+import re
+from pprint import pprint
+
+def parse_cfg(file):
+    regex = re.compile('interface (?P<intf>\S+)'
+                       '| ip address (?P<ip>\S+) (?P<mask>\S+)')
+    result = {}
+    with open(file) as f:
+        matches = regex.finditer(f.read())
+        for match in matches:
+            if match.lastgroup == 'intf':
+                intf = match.group(match.lastgroup)
+            elif match.lastgroup == 'mask':
+                if intf not in result:
+                    result[intf] = []
+                result[intf].append((match.group('ip'), match.group('mask')))
+
+    return result
+
+
+pprint(parse_cfg('config_r2.txt'))
