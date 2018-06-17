@@ -38,3 +38,17 @@ Loopback100                100.0.0.1       YES manual up                    up
 
 
 '''
+import sys, re
+if len(sys.argv) != 3:
+    print('wrong args')
+else:
+    file = sys.argv[1]
+    try:
+        regex = re.compile(sys.argv[2])
+        with open(file) as f:
+            for line in f:
+                match = regex.search(line)
+                if match:
+                    print(line.rstrip())
+    except FileNotFoundError:
+        print('wrong filename')
