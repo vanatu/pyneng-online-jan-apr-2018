@@ -24,3 +24,28 @@ R6           Fa 0/2          143           R S I           2811       Fa 0/0
 
 Проверить работу функции на содержимом файла sh_cdp_n_sw1.txt
 '''
+import re
+from pprint import pprint
+
+def parse_sh_cdp_neighbors(output):
+    result = {}
+    regex = re.compile('(?P<hostname>\S+)>show cdp neighbors'
+                        '|(?P<nbr>\S+) +(?P<lintf>\w+\s?\d/\d+)'
+                        '.*?(?P<rintf>\w+\s?\d/\d+)')
+
+    match_iter = regex.finditer(output)
+
+    for match in match_iter:
+        if match.lastgroup == 'hostname':
+            hostname = match.group(match.lastgroup)
+            result[hostname] = {}
+        elif match.lastgroup == 'rintf':
+            lintf = match.group('lintf')
+            nbr = match.group('nbr')
+            rintf = match.group('rintf')
+            result[hostname][lintf] = {nbr:rintf}
+
+    return result
+
+with open('sh_cdp_n_sw1.txt') as f:
+    pprint(parse_sh_cdp_neighbors(f.read()))
