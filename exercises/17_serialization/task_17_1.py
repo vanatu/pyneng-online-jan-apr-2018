@@ -70,4 +70,5 @@ for file in sh_version_files:
         hostname = re.match('.*_(\S+)\.', file).group(1)
         list_of_lists.append([hostname] + list(parse_sh_version(f.read())))
 
-write_to_csv('routers_inventory.csv', list_of_lists)
+if __name__ == '__main__':
+    write_to_csv('routers_inventory.csv', list_of_lists)

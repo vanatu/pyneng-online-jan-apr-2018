@@ -47,5 +47,6 @@ def parse_sh_cdp_neighbors(output):
 
     return result
 
-with open('sh_cdp_n_sw1.txt') as f:
-    pprint(parse_sh_cdp_neighbors(f.read()))
+if __name__ == '__main__':
+    with open('sh_cdp_n_sw1.txt') as f:
+        pprint(parse_sh_cdp_neighbors(f.read()))
