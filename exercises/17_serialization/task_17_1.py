@@ -43,9 +43,43 @@
 Кроме того, создан список заголовков (headers), который должен быть записан в CSV.
 '''
 
-import glob
+import glob, re, csv
 
 sh_version_files = glob.glob('sh_vers*')
 #print(sh_version_files)
 
 headers = ['hostname', 'ios', 'image', 'uptime']
+list_of_lists = [headers]
+def parse_sh_version(output):
+    '''
+     * ios - в формате "12.4(5)T"
+     * image - в формате "flash:c2800-advipservicesk9-mz.124-5.T.bin"
+     * uptime - в формате "5 days, 3 hours, 3 minutes"
+    '''
+    temp_dict = {}
+    regex = re.compile('.* IOS .* Version (?P<ios>\S+), '
+            '|System image file is "(?P<image>\S+)"'
+            '|.*uptime is (?P<uptime>.*)')
+    match_iter = regex.finditer(output)
+    for match in match_iter:
+        temp_dict[match.lastgroup] = match.group(match.lastgroup)
+    return (temp_dict['ios'], temp_dict['image'], temp_dict['uptime'])
+
+def write_to_csv(file_to_csv, list_data):
+    '''
+    * имя файла, в который будет записана информация в формате CSV
+    * данные в виде списка списков, где:
+        * первый список - заголовки столбцов,
+        * остальные списки - содержимое
+    * функция записывает содержимое в файл, в формате CSV и ничего не возвращает
+    '''
+    with open(file_to_csv, 'w') as f:
+        writer = csv.writer(f)
+        writer.writerows(list_data)
+
+for file in sh_version_files:
+    with open(file) as f:
+        hostname = re.match('.*_(\S+)\.', file).group(1)
+        list_of_lists.append([hostname] + list(parse_sh_version(f.read())))
+
+write_to_csv('routers_inventory.csv', list_of_lists)
