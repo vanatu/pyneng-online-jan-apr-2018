@@ -29,3 +29,18 @@
 > pip install graphviz
 
 '''
+from draw_network_graph import draw_topology
+import yaml
+from pprint import pprint
+
+with open('topology.yaml') as f:
+    templates = yaml.load(f)
+
+result = {}
+for k,v in templates.items():
+    for k2,v2 in v.items():
+        for k3,v3 in v2.items():
+            if (k3, v3) not in result:
+                result[k,k2] = (k3, v3)
+
+draw_topology(result)
