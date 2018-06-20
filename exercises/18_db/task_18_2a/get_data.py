@@ -18,6 +18,11 @@ def get_data():
 
     key, value = sys.argv[1:]
     keys = ['mac', 'ip', 'vlan', 'interface', 'switch']
+    if key not in keys:
+        print('Данный параметр не поддерживается.\n'
+              'Допустимые значения параметров: {}, {}, {}, {}, {}'.format(*keys))
+        sys.exit()
+
     keys.remove(key)
 
     conn.row_factory = sqlite3.Row
