@@ -31,8 +31,10 @@ def create_db():
     with open(schema_filename) as f:
       conn.executescript(f.read())
       print('Done')
-    
+
     conn.close()
 
   else:
     print('DB already exists')
+
+create_db()

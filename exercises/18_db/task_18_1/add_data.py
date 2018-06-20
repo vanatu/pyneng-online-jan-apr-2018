@@ -27,37 +27,47 @@ import glob, sqlite3, yaml, re
 db_filename = 'dhcp_snooping.db'
 dhcp_snoop_files = glob.glob('sw*_dhcp_snooping.txt')
 
-sw_file = 'switches.yml'
-with open(sw_file) as f:
-  sw_info = yaml.load(f)
 
-conn = sqlite3.connect(db_filename)
 
-query_sw = 'insert into switches (hostname, location) values (?, ?)'
-query_dhcp = 'insert into dhcp (mac, ip, vlan, interface, switch) values (?, ?, ?, ?, ?)'
+def add_data_sw():
+    conn = sqlite3.connect(db_filename)
+    sw_file = 'switches.yml'
+    query = 'insert into switches (hostname, location) values (?, ?)'
 
-for k,v in sw_info['switches'].items():
-  try:
-    with conn:
-      conn.execute(query_sw, (k,v))
-  except sqlite3.IntegrityError as e:
-    print('Error occured: ', e)
+    with open(sw_file) as f:
+        sw_info = yaml.load(f)
 
-result = []
-regex = re.compile('(\S+) +(\S+) +\d+ +\S+ +(\d+) +(\S+)')
-for i in dhcp_snoop_files:
-  hostname = re.match('(\S+?)_.*', i).group(1)
-  with open(i) as f:
-    for line in f:
-      match = regex.match(line)
-      if match:
-        result.append(match.groups() + (hostname,))
+    for k,v in sw_info['switches'].items():
+        try:
+            with conn:
+                conn.execute(query, (k,v))
+        except sqlite3.IntegrityError as e:
+            print('Error occured: ', e)
 
-for row in result:
-  try:
-    with conn:
-      conn.execute(query_dhcp, row)
-  except sqlite3.IntegrityError as e:
-    print('Error occured: ', e)
+    conn.close()
 
-conn.close()
+def add_data_dhcp():
+    conn = sqlite3.connect(db_filename)
+    query = 'insert into dhcp (mac, ip, vlan, interface, switch) values (?, ?, ?, ?, ?)'
+    result = []
+    regex = re.compile('(\S+) +(\S+) +\d+ +\S+ +(\d+) +(\S+)')
+
+    for file in dhcp_snoop_files:
+        hostname = re.match('(\S+?)_.*', file).group(1)
+        with open(file) as f:
+            for line in f:
+                match = regex.match(line)
+                if match:
+                    result.append(match.groups() + (hostname,))
+
+    for row in result:
+        try:
+            with conn:
+                conn.execute(query, row)
+        except sqlite3.IntegrityError as e:
+            print('Error occured: ', e)
+
+    conn.close()
+
+add_data_sw()
+add_data_dhcp()
