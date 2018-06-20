@@ -17,6 +17,22 @@ create_db.py
 Какие именно функции и как разделить код, надо решить самостоятельно.
 Часть кода может быть глобальной.
 """
+import sqlite3, os
 
 db_filename = 'dhcp_snooping.db'
 schema_filename = 'dhcp_snooping_schema.sql'
+
+def create_db():
+
+  if not os.path.exists(db_filename):
+    conn = sqlite3.connect(db_filename)
+    print('Creating schema...')
+
+    with open(schema_filename) as f:
+      conn.executescript(f.read())
+      print('Done')
+    
+    conn.close()
+
+  else:
+    print('DB already exists')
