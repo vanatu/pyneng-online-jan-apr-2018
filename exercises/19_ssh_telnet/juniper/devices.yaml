@@ -9,3 +9,8 @@ routers:
   username: ivanov.m
   password: wrimmIml
   'verbose': False
+- device_type: juniper
+  ip: 187.226.134.194
+  username: ivanov.m
+  password: wrimmIml
+  'verbose': False
