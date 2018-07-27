@@ -17,14 +17,16 @@
 import subprocess
 from pprint import pprint
 
-def check_ip_addresses(ip):
+def check_ip_addresses(ip, hello=False):
 	ip_ok, ip_bad = [], []
+	if hello:
+		print('print {}'.format(ip).center(20, '#'))
 	r = subprocess.run('ping -n 3 {}'.format(ip),
 		 					shell = True,
 							#stdout=subprocess.DEVNULL
 							)
 	ip_ok.append(ip) if r.returncode == 0 else ip_bad.append(ip)
-
+	
 	return ip_ok, ip_bad
 
 if __name__ == '__main__':
