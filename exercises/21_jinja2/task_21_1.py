@@ -19,16 +19,17 @@ import yaml
 import sys
 import os
 
-#$ python cfg_gen.py templates/for.txt data_files/for.yml
-TEMPLATE_DIR, template = os.path.split(sys.argv[1])
-VARS_FILE = sys.argv[2]
 
-env = Environment(
-    loader=FileSystemLoader(TEMPLATE_DIR),
-    trim_blocks=True,
-    lstrip_blocks=True)
-template = env.get_template(template_file)
+def generate_cfg_from_template(path_template, path_vars_yaml):
+    TEMPLATE_DIR, template_file = os.path.split(path_template)
+    vars_dict = yaml.load(open(path_vars_yaml))
 
-vars_dict = yaml.load(open(VARS_FILE))
+    env = Environment(
+        loader=FileSystemLoader(TEMPLATE_DIR),
+        trim_blocks=True,
+        lstrip_blocks=True)
+    template = env.get_template(template_file)
+    
+    return template.render(vars_dict)
 
-print(template.render(vars_dict))
+print(generate_cfg_from_template('templates/for.txt', 'data_files/for.yml'))
