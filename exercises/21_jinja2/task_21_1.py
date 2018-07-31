@@ -31,5 +31,3 @@ def generate_cfg_from_template(path_template, path_vars_yaml):
     template = env.get_template(template_file)
     
     return template.render(vars_dict)
-
-print(generate_cfg_from_template('templates/for.txt', 'data_files/for.yml'))

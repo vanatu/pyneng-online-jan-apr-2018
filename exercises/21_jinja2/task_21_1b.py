@@ -62,5 +62,3 @@ def generate_cfg_from_template(path_template, yaml_file=None, json_file=None,
     template = env.get_template(template_file)
 
     return template.render(vars_dict)
-
-print(generate_cfg_from_template('templates/for.txt', py_dict=data_dict))
