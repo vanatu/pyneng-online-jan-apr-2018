@@ -23,7 +23,7 @@ def parse_output(template, output):
         for i in range(len(match)):
             for j in range(len(header)):
                 temp_dict[header[j]] = match[i][j]
-            result.append(temp_dict)
+            result.append(temp_dict.copy())
         return result
 
 
