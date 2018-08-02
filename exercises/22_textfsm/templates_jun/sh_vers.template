@@ -1,0 +1,8 @@
+Value Hostname (\S+)
+Value Model (\S+)
+Value Junos (\S+R\S+)
+
+Start
+  ^Hostname: ${Hostname}
+  ^Model: ${Model}
+  ^JUNOS Base OS boot \[${Junos}\] -> Record

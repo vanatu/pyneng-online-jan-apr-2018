@@ -1,0 +1,2 @@
+Template, Hostname, Vendor, Command
+sh_vers.template, .*, juniper, sh[[ow]] vers[[ion]]
