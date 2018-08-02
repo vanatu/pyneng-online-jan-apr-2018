@@ -17,3 +17,16 @@
 Проверить работу функции на примере обработки
 команды sh ip int br (шаблон и вывод есть в разделе).
 '''
+
+from task_22_1 import parse_output
+import csv
+
+def list_to_csv(data_list, csv_file_out):
+    with open(csv_file_out, 'w', newline='') as f:
+        writer = csv.writer(f, delimiter=';', quoting=csv.QUOTE_MINIMAL)
+        for row in data_list:
+            writer.writerow(row)
+
+if __name__ == '__main__':
+    output = open('output/sh_ip_int_br.txt').read()
+    list_to_csv(parse_output('templates/sh_ip_int_br.template', output), 'task_22_2.csv')

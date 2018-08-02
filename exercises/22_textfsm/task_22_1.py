@@ -38,6 +38,7 @@ def parse_output(template, output):
         result += re_table.ParseText(output)
         return result
 
-output = open('output/sh_cdp_n_det.txt').read()
 
-print(parse_output('templates/sh_cdp_n_det.template', output))
+if __name__ == '__main__':
+    output = open('output/sh_cdp_n_det.txt').read()
+    pprint(parse_output('templates/sh_cdp_n_det.template', output))
