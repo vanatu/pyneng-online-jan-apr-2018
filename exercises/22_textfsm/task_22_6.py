@@ -17,6 +17,18 @@
 '''
 
 import yaml
+from task_22_5 import send_and_parse_command
+from concurrent.futures import ThreadPoolExecutor
+from itertools import repeat
 
-test_command = "sh ip int br"
-devices = yaml.load(open('devices.yaml'))
+def send_and_parse_command_parallel(device, command, limit=2):
+    device = [device] * limit
+    with ThreadPoolExecutor(max_workers=limit) as executor:
+        f_result = executor.map(send_and_parse_command, device, repeat(command))
+    return list(f_result)
+
+
+test_command = "show version"
+devices = yaml.load(open('devices_jun.yaml'))
+
+print(send_and_parse_command_parallel('devices_jun.yaml', test_command))
