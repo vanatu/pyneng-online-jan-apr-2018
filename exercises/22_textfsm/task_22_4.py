@@ -44,14 +44,23 @@ print(header)
 for row in data_rows:
     print(row) """
 
-def parse_command_dynamic(attributes, output, index='index', tmpl_dir='templates'):
+def parse_command_dynamic(attr, output, index='index', tmpl_dir='templates'):
     result = []
     temp_dict = {}
     cli_table = clitable.CliTable(index, tmpl_dir)
+    cli_table.ParseCmd(output, attr)
+
+    header = list(cli_table.header)
+    data_rows = [list(row) for row in cli_table]
+
+    for i in range(len(data_rows)):
+        for j in range(len(header)):
+            temp_dict[header[j]] = data_rows[i][j]
+        result.append(temp_dict.copy())
     return result
 
 if __name__ == '__main__':
     output = open('output/sh_ip_int_br.txt').read()
-    attributes = {'Command': 'show ip route ospf', 'Vendor': 'Cisco'}
+    attributes = {'Command': 'sh ip int br', 'Vendor': 'cisco_ios'}
     pprint(parse_command_dynamic(attributes, output))
 
