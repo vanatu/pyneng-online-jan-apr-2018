@@ -17,11 +17,9 @@
 Пример из раздела:
 '''
 
-import sys
 import textfsm
-from tabulate import tabulate
 
-template = sys.argv[1]
+""" template = sys.argv[1]
 output_file = sys.argv[2]
 
 with open(template) as f, open(output_file) as output:
@@ -29,4 +27,17 @@ with open(template) as f, open(output_file) as output:
     header = re_table.header
     result = re_table.ParseText(output.read())
     print(result)
-    print(tabulate(result, headers=header))
+    print(tabulate(result, headers=header)) """
+
+def parse_output(template, output):
+    with open(template) as f:
+        result = []
+        re_table = textfsm.TextFSM(f)
+        header = re_table.header
+        result.append(header)
+        result += re_table.ParseText(output)
+        return result
+
+output = open('output/sh_cdp_n_det.txt').read()
+
+print(parse_output('templates/sh_cdp_n_det.template', output))
