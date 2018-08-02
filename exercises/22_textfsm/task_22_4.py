@@ -25,8 +25,9 @@
 '''
 
 import clitable
+from pprint import pprint
 
-output_sh_ip_route_ospf = open('output/sh_ip_route_ospf.txt').read()
+""" output_sh_ip_route_ospf = open('output/sh_ip_route_ospf.txt').read()
 
 cli_table = clitable.CliTable('index', 'templates')
 attributes = {'Command': 'show ip route ospf', 'Vendor': 'Cisco'}
@@ -41,4 +42,16 @@ header = list(cli_table.header)
 
 print(header)
 for row in data_rows:
-    print(row)
+    print(row) """
+
+def parse_command_dynamic(attributes, output, index='index', tmpl_dir='templates'):
+    result = []
+    temp_dict = {}
+    cli_table = clitable.CliTable(index, tmpl_dir)
+    return result
+
+if __name__ == '__main__':
+    output = open('output/sh_ip_int_br.txt').read()
+    attributes = {'Command': 'show ip route ospf', 'Vendor': 'Cisco'}
+    pprint(parse_command_dynamic(attributes, output))
+
