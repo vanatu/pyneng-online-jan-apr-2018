@@ -1,0 +1,15 @@
+---
+- name: Get arp
+  hosts: juniper
+  connection: local
+  gather_facts: no
+  
+  tasks:
+    - name: Get arp
+      junos_command:
+        commands: show arp
+      register: sh_arp_output
+
+    - name: Print result
+      debug:
+        var: "sh_arp_output.stdout[0].split('\n')"
