@@ -1,0 +1,21 @@
+---
+- name: Get arp
+  hosts: juniper
+  connection: local
+  gather_facts: no
+  
+  tasks:
+    - name: Get arp
+      junos_command:
+        commands:
+          - show arp
+          - show int ters
+      register: result
+
+    - name: Print arp result
+      debug:
+        var: result.stdout_lines[0]
+
+    - name: Print int ters result
+      debug:
+        var: result.stdout_lines[1]
