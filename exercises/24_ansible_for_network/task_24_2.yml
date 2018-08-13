@@ -1,0 +1,15 @@
+---
+- name: task_24_2
+  hosts: juniper
+  connection: local
+  gather_facts: no
+  
+  tasks:
+    - name: Get facts
+      junos_facts: host={{ inventory_hostname }}
+      register: facts
+
+    - name: Print
+      debug:
+        var: facts
+

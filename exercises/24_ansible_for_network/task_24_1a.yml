@@ -1,6 +1,8 @@
 ---
 - name: Get arp
-  hosts: juniper
+  hosts: lab-junos
+  roles:
+    - Juniper.junos        
   connection: local
   gather_facts: no
   
@@ -12,4 +14,4 @@
 
     - name: Print result
       debug:
-        var: "sh_arp_output.stdout[0].split('\n')"
+        var: sh_arp_output.stdout_lines
