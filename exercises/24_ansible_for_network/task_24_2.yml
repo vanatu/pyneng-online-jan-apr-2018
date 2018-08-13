@@ -7,10 +7,10 @@
   gather_facts: no
 
   tasks:
-    - name: Retrieving information from devices running Junos OS
-      juniper_get_facts:
+    - name: get facts
+      junos_facts:
         host: "{{ inventory_hostname }}"
 
     - name: Print version
       debug:
-        var: junos.version
+        var: ansible_facts.net_interfaces
