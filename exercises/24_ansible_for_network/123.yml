@@ -1,0 +1,16 @@
+---
+- name: Get arp
+  hosts: lab-junos
+  roles:
+    - Juniper.junos
+  connection: local
+  gather_facts: no
+  
+  tasks:
+    - name: Get arp
+      junos_facts:
+      register: jun
+
+    - name: Print result
+      debug:
+        var: jun

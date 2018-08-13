@@ -1,15 +1,16 @@
 ---
 - name: task_24_2
-  hosts: juniper
+  hosts: lab-junos
+  roles:
+    - Juniper.junos
   connection: local
   gather_facts: no
-  
+
   tasks:
-    - name: Get facts
-      junos_facts: host={{ inventory_hostname }}
-      register: facts
+    - name: Retrieving information from devices running Junos OS
+      juniper_get_facts:
+        host: "{{ inventory_hostname }}"
 
-    - name: Print
+    - name: Print version
       debug:
-        var: facts
-
+        var: junos.version
