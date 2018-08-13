@@ -1,0 +1,16 @@
+---
+- name: task_24_2
+  hosts: lab-junos
+  roles:
+    - Juniper.junos
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: get facts
+      junos_facts:
+        config_format: "json"
+    - name: copy facts to file
+      copy:
+        content: "{{ ansible_facts.net_interfaces | to_nice_json }}"
+        dest: all_facts/{{ inventory_hostname }}_intf_facts.yml

@@ -9,7 +9,6 @@
   tasks:
     - name: get facts
       junos_facts:
-        host: "{{ inventory_hostname }}"
 
     - name: Print version
       debug:

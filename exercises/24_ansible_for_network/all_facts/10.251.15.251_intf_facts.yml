@@ -1,0 +1,498 @@
+{
+    ".local.": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unlimited",
+        "type": "Loopback"
+    },
+    "ce1-3/2/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/1": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/2": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/3": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/4": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/5": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/6": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/7": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/8": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "ce1-3/2/9": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": null,
+        "oper-status": "up",
+        "speed": "E1",
+        "type": null
+    },
+    "demux0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "9192",
+        "oper-status": "up",
+        "speed": "Unspecified",
+        "type": "Software-Pseudo"
+    },
+    "dsc": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unspecified",
+        "type": "Software-Pseudo"
+    },
+    "em0": {
+        "admin-status": "up",
+        "macaddress": "02:00:00:00:00:04",
+        "mtu": "1514",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "Ethernet"
+    },
+    "em1": {
+        "admin-status": "up",
+        "macaddress": "02:00:01:00:00:04",
+        "mtu": "1514",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "Ethernet"
+    },
+    "fxp0": {
+        "admin-status": "up",
+        "macaddress": "00:a0:a5:61:ef:ed",
+        "mtu": "1514",
+        "oper-status": "up",
+        "speed": "100mbps",
+        "type": "Ethernet"
+    },
+    "ge-2/2/0": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:dc:fa",
+        "mtu": "3000",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-2/2/1": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:dc:fb",
+        "mtu": "3000",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-2/2/2": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:dc:fc",
+        "mtu": "9100",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-2/2/3": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:dc:fd",
+        "mtu": "9100",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-2/2/4": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:dc:fe",
+        "mtu": "3000",
+        "oper-status": "down",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-2/2/5": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:dc:ff",
+        "mtu": "1514",
+        "oper-status": "down",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-2/2/6": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:dd:00",
+        "mtu": "1514",
+        "oper-status": "down",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-2/2/7": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:dd:01",
+        "mtu": "1514",
+        "oper-status": "down",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-3/1/0": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:de:79",
+        "mtu": "1514",
+        "oper-status": "down",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-3/1/1": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:de:7a",
+        "mtu": "1514",
+        "oper-status": "down",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-3/1/2": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:de:7b",
+        "mtu": "1514",
+        "oper-status": "down",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "ge-3/1/3": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:de:7c",
+        "mtu": "9100",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": null
+    },
+    "gr-3/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "GRE"
+    },
+    "gr-4/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "GRE"
+    },
+    "gre": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unlimited",
+        "type": "GRE"
+    },
+    "ip-3/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "IPIP"
+    },
+    "ip-4/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "IPIP"
+    },
+    "ipip": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unlimited",
+        "type": "IPIP"
+    },
+    "lo0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unspecified",
+        "type": "Loopback"
+    },
+    "lsi": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "1496",
+        "oper-status": "up",
+        "speed": "Unlimited",
+        "type": "Software-Pseudo"
+    },
+    "lsq-3/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "1504",
+        "oper-status": "up",
+        "speed": null,
+        "type": null
+    },
+    "mt-3/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "Multicast-GRE"
+    },
+    "mt-4/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "Multicast-GRE"
+    },
+    "mtun": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unlimited",
+        "type": "Multicast-GRE"
+    },
+    "pc-2/2/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "PIC-Peer"
+    },
+    "pc-3/1/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "PIC-Peer"
+    },
+    "pd-3/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "PIMD"
+    },
+    "pd-4/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "PIMD"
+    },
+    "pe-3/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "PIME"
+    },
+    "pe-4/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "PIME"
+    },
+    "pfh-0/0/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "1560",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "40"
+    },
+    "pfh-1/0/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "1560",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "40"
+    },
+    "pfh-2/0/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "1560",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "40"
+    },
+    "pfh-3/0/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "1560",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "40"
+    },
+    "pfh-4/0/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "1560",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "40"
+    },
+    "pimd": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unlimited",
+        "type": "PIMD"
+    },
+    "pime": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unlimited",
+        "type": "PIME"
+    },
+    "pp0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "1532",
+        "oper-status": "up",
+        "speed": "Unspecified",
+        "type": "PPPoE"
+    },
+    "so-2/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "4474",
+        "oper-status": "down",
+        "speed": "OC48",
+        "type": null
+    },
+    "so-2/1/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "4474",
+        "oper-status": "down",
+        "speed": "OC48",
+        "type": null
+    },
+    "sp-3/0/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "9192",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "Adaptive-Services"
+    },
+    "sp-4/0/0": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "9192",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "Adaptive-Services"
+    },
+    "tap": {
+        "admin-status": "up",
+        "macaddress": "Unspecified",
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "Unlimited",
+        "type": "Software-Pseudo"
+    },
+    "vt-3/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "800mbps",
+        "type": "Loopback"
+    },
+    "vt-4/0/0": {
+        "admin-status": "up",
+        "macaddress": null,
+        "mtu": "Unlimited",
+        "oper-status": "up",
+        "speed": "1000mbps",
+        "type": "Loopback"
+    },
+    "xe-0/0/0": {
+        "admin-status": "up",
+        "macaddress": "00:1f:12:c6:d8:00",
+        "mtu": "1514",
+        "oper-status": "down",
+        "speed": "10Gbps",
+        "type": null
+    }
+}
