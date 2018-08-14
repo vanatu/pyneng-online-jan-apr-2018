@@ -1,0 +1,19 @@
+---
+- name: Get chassis models
+  hosts: astr
+  roles:
+    - Juniper.junos
+  connection: local
+  gather_facts: no
+  
+  tasks:
+    - name: Get chassis
+      junos_command:
+        commands:
+          - show version
+          - show chassis hardware models
+      register: result
+
+    - name: Print result
+      debug:
+        var: result.stdout_lines
